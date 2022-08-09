@@ -1,5 +1,6 @@
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+#lower serve para deixar tudo minusculo
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 direction = direction.lower()
 text = input("Type your message:\n").lower()
@@ -21,13 +22,16 @@ shift = int(input("Type the shift number:\n"))
 
 #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
 
+encryptedWord = []
 def encrypt(text, shift):
-    text = text.split()
+    word = list(text)
     for word in text:
-        position = alphabet.index(word)
-        ShiftedPosition = position + shift
-        word = alphabet[ShiftedPosition]
-    print(text)            
+        position = alphabet.index(word)#position recebe a posicao da letra especifica no alfabeto
+        ShiftedPosition = position + shift#ShiftedPosition recebe a posição + a marcha
+        word = alphabet[ShiftedPosition]# a letra  é trocada pela que esta na posicao que a marcha colocou            
+        encryptedWord.append(word)#append coloca a word no final da lista encryptedWord
 
-encrypt(shift=5,text="hello")
+encrypt(text,shift)#chama a funcao encrypt, passando os parametros coletados la atras
 
+encryptedWord = ''.join(encryptedWord)#transforma a Lista encryptedWord em uma String encryptWord
+print(encryptedWord)
